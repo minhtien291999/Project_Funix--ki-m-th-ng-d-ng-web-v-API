@@ -1,0 +1,3006 @@
+{
+	"info": {
+		"_postman_id": "15f520b1-e9c5-4d56-9bf9-1b8c44819a82",
+		"name": "ASM 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21116113",
+		"_collection_link": "https://galactic-crater-343632.postman.co/workspace/Funix_demo~0205c102-079b-45c6-bf2f-bccec8783529/collection/21116113-15f520b1-e9c5-4d56-9bf9-1b8c44819a82?action=share&source=collection_link&creator=21116113"
+	},
+	"item": [
+		{
+			"name": "1.Đăng ký ứng viên",
+			"item": [
+				{
+					"name": "Đăng ký ứng viên thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call Api thành công với status = 200\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "doanminhtien",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tiendoan2920@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tiendoan2920",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456Aa",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0345457214",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nam",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "15/02/1999",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Trình độ ngoại ngữ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "Trình độ học vấn",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": "{{url}}/api/users/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký thất bại với trường bắt buộc để trống",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tiendoan1324",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aA",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Trình độ ngoại ngữ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "Trình độ học vấn",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thất bại với tên tài khoản đã tồn tại",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Minh Tiến",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tiendoan1104@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tiendoan2920",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234567Aa",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0345457216",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nam",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "15/02/2000",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Trình độ ngoại ngữ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "Trình độ học vấn",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thành công với số điện thoại bắt đầu bằng 0",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Minh Tiến",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "anhsseve123@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tiendoan56465",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aA",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0345457222",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nam",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/02/2000",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Trình độ ngoại ngữ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "Trình độ học vấn",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thành công với số điện thoại bắt đầu bằng 84",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Minh",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tiendoan987@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tiendoan987",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aA",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "84345457324",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2000",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Trình độ ngoại ngữ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "Trình độ học vấn",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thành công với số điện thoại bắt đầu bằng 84 Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Minh",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tiendoan9857@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tiendoan9871",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aA",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0345457214",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2000",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Trình độ ngoại ngữ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "Trình độ học vấn",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thất bại với số điện thoại không đúng định dạng ( số đầu khác 0,84)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Minh",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tiendoan98557@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tiendoan9871d",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aA",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "3345457214",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2000",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Trình độ ngoại ngữ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "Trình độ học vấn",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thất bại với số điện thoại sai định dạng ( độ dài khác 10 số)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Minh",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tiendoan9855a7@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tiendoan987a1d",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aA",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "034545721412",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2000",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Trình độ ngoại ngữ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "Trình độ học vấn",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thất bại với ngày sinh lớn hơn ngày hiện tại",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Minh",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tiendoan9855a7@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tiendoan987a1d",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aA",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "034545721412",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2024",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Trình độ ngoại ngữ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "Trình độ học vấn",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thất bại với Email đã tồn tại",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Minh",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tiendoan2920@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tiendoan9",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aA",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0345457456",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2024",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Trình độ ngoại ngữ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "Trình độ học vấn",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thất bại với Email không đúng định dạng ( không có @ trước gmail.com)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Minhggg",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tiendoan2920gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tiendoan9ff",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aA",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0345457789",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nữ",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2024",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Trình độ ngoại ngữ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "Trình độ học vấn",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thất bại với mật khẩu 7 ký tự (bao gồm chữ hoa, thường, số )",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Tiến",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tiendoan2912220gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tiendoan123478",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12341Aa",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0345457789",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nam",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2000",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Tiếng mỹ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "12/12",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thành công với mật khẩu 8 ký tự (bao gồm chữ hoa, thường, số )",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Tiến",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "doanminhtien12346@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tien123457",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456Aa",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0345457214",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nam",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2000",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Tiếng mỹ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "12/12",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thành công với mật khẩu có số âm",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Tiến",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "doanminhtien33346@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tien1245aa",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "-123456Aa",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0345457214",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nam",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2000",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Tiếng mỹ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "12/12",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thất bại với mật khẩu không có ký tự số",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Tiến minh",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "doanminhtien3456@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tien1455",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Minhtiennnn",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0345457214",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nam",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2000",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Tiếng mỹ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "12/12",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thất bại với mật khẩu không có ký tự in hoa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Tiến minh",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "doanminhtien34556@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tien1455d",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "minhtien1234",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0345457214",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nam",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2000",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Tiếng mỹ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "12/12",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thất bại với mật khẩu không có ký tự in thường",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Tiến tiến",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "doanminhtien156@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tien145accc",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "MINHTIEN123456",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "034545454",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nam",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2000",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Tiếng mỹ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "12/12",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng ký ứng viên thất bại với mật khẩu không có ký tự in thường Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Tiến tiến",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "doanminhtien156@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "tien145accc",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "MINHTIEN123456",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "034545454",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "Nam",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "12/12/2000",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1 năm",
+									"type": "text"
+								},
+								{
+									"key": "skill",
+									"value": "kỹ năng",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Mô tả bản thân",
+									"type": "text"
+								},
+								{
+									"key": "foreiginLanguage",
+									"value": "Tiếng mỹ",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "12/12",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/Downloads/Untitled.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2.Đăng nhập (dành cho ứng viên)",
+			"item": [
+				{
+					"name": "Đăng nhập (dành cho ứng viên) thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status = 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"if(pm.response.code === 200){\r",
+									"    const result = pm.response.json();\r",
+									"    pm.expect(result.message).to.exist;\r",
+									"    pm.expect(result.user.userId).to.exist;\r",
+									"    pm.expect(result.user.account).to.exist;\r",
+									"    pm.expect(result.user.account).to.eql(JSON.parse(pm.request.body).account);\r",
+									"    pm.environment.set(\"token_employee\",result.token);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\":\"tiendoan2920\",\r\n    \"password\":\"123456Aa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập (dành cho ứng viên) thất bại với tài khoản không tồn tại",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status = 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"if(pm.response.code = 404){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\":\"1\",\r\n    \"password\":\"123456Aa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập (dành cho ứng viên) thất bại với tài khoản, mật khẩu để trống",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status = 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\":\"\",\r\n    \"password\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập (dành cho ứng viên) thất bại với mật khẩu sai",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status = 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\":\"tiendoan2920\",\r\n    \"password\":\"123456fff7Aa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập (dành cho ứng viên) thất bại với mật khẩu 7 ký tự. bao gồm hoa, thường, số",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status = 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường,số\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\":\"tiendoan2920\",\r\n    \"password\":\"1223Aa2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập (dành cho ứng viên) thất bại với mật khẩu 8 ký tự , bao gồm hoa, thường, số",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status = 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\":\"tiendoan2920\",\r\n    \"password\":\"123456Ba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập (dành cho ứng viên) thất bại với mật khẩu không có in hoa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status = 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\":\"tiendoan2920\",\r\n    \"password\":\"123456aa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập (dành cho ứng viên) thất bại với mật khẩu không có in thường",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status = 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\":\"tiendoan2920\",\r\n    \"password\":\"123456AA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập (dành cho ứng viên) thất bại với mật khẩu không có số",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status = 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\":\"tiendoan2920\",\r\n    \"password\":\"abcdefgGd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/users/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3.Đăng nhập (dành cho nhà tuyển dụng)",
+			"item": [
+				{
+					"name": "Đăng nhập thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"if(pm.response.code === 200){\r",
+									"    const result = pm.response.json();\r",
+									"    pm.expect(result.message).to.exist;\r",
+									"    pm.expect(result.user.userId).to.exist;\r",
+									"    pm.expect(result.user.account).to.exist;\r",
+									"    pm.expect(result.user.account).to.eql(JSON.parse(pm.request.body).account);\r",
+									"    pm.environment.set(\"token_employer\",result.token);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"account\":\"tiendoan291999\",\r\n   \"password\":\"123456aB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/company/login-company"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập thất bại với tài khoản k tồn tại",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status 404 OK\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"if(pm.response.code = 404){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"account\":\"tiendoan29199999\",\r\n   \"password\":\"123456aB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/company/login-company"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập thất bại với tài khoản,mật khẩu để trống",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg)\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"account\":\"\",\r\n   \"password\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/company/login-company"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập thất bại với tài khoản đúng,mật khẩu sai",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"account\":\"tiendoan291999\",\r\n   \"password\":\"123456fAb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/company/login-company"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập thất bại với mật khẩu độ dài 7 ký tự",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"account\":\"tiendoan291999\",\r\n   \"password\":\"124Bcaa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/company/login-company"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập thất bại với mật khẩu độ dài 8 ký tự",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Tài khoản người dùng không tồn tại\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"account\":\"tiendoan291999\",\r\n   \"password\":\"124Bcaa3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/company/login-company"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập thất bại với mật khẩu không có in hoa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"account\":\"tiendoan291999\",\r\n   \"password\":\"124Bcaa3d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/company/login-company"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập thất bại với mật khẩu không có in thường",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"account\":\"tiendoan291999\",\r\n   \"password\":\"123465AAA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/company/login-company"
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập thất bại với mật khẩu không có số",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"if(pm.response.code = 400){\r",
+									"    const result = pm.response.json();\r",
+									"    const resultMsg = \"Mật khẩu không hợp lệ, mật khẩu phải tối thiểu 8 kí tự, bao gồm chữ hoa, thường, số\";\r",
+									"    pm.expect(result.message).to.eql(resultMsg);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"account\":\"tiendoan291999\",\r\n   \"password\":\"fggffAAA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/company/login-company"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4.Lấy danh sách công việc",
+			"item": [
+				{
+					"name": "Lấy danh sách công việc",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Call APi thất bại với status 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"if(pm.response.code === 200){\r",
+									"    const result = pm.response.json();\r",
+									"    pm.environment.set(\"jobId\",(result[0].id));\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/api/work/list-work"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5.Lấy thông tin User hiện tại",
+			"item": [
+				{
+					"name": "Lấy thông tin User hiện tại thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call Api thành công với status = 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Call Api thất bại với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_employee}}",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/api/users/get-information-user"
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy thông tin User hiện tại thất bại khi chưa đăng nhập",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call Api thất bại với status = 403 \", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"addTokenTo": "header"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_employee}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{url}}/api/users/get-information-user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "6.Lấy danh sách các ứng viên",
+			"item": [
+				{
+					"name": "Lấy danh sách các ứng viên",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call Api thành công với status = 200 \", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Call Api thất bại với status = 500 \", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_employer}}",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/api/work-user/get-all-admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy danh sách các ứng viên khi nhà tuyển dụng chưa đăng nhập",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call Api thất bại với status = 403 \", function () {\r",
+									"    pm.response.to.have.status(403  );\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_employer}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{url}}/api/work-user/get-all-admin"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "7.Ứng tuyển",
+			"item": [
+				{
+					"name": "Ứng tuyển thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_employee}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "jobId",
+									"value": "{{jobId}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{url}}/api/application/create-application"
+					},
+					"response": []
+				},
+				{
+					"name": "Ứng tuyển thất bại với ứng viên chưa đăng nhập",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thất bại với status 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_employee}}",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/api/application/create-application"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "8.Lấy danh sách các công ty",
+			"item": [
+				{
+					"name": "Lấy danh sách các công ty thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Call APi thất bại với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/api/company/getAllCompany"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "9.Lấy danh sách các đơn ứng tuyển",
+			"item": [
+				{
+					"name": "Lấy danh sách các công ty thành công",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Call APi thất bại với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token_employer}}",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/api/application/getall-application"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "10.Lấy danh sách các User",
+			"item": [
+				{
+					"name": "Lấy danh sách các User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.response.code);\r",
+									"pm.test(\"Call APi thành công với status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Call APi thất bại với status = 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/api/users/getAllUsers"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
